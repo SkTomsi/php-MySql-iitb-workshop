@@ -38,6 +38,5 @@
 		echo "TOTAL MARKS: $marks <br>";
 	$per = (($sub1+$sub2+$sub3+$sub4+$sub5)/500)*100;
 		echo "PERCENTAGE OBTAINED : $per %<br>"; 
- 
  }
 ?>
