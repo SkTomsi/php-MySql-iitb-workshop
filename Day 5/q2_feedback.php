@@ -9,21 +9,23 @@
 </html>
 
 <?php
-if(isset($_POST['submit'])){
+if(@$_POST['submit']){
 	@$username = $_POST['name'];
 	@$useremail = $_POST['useremail'];
 	@$feedback = $_POST['feedback'];
 	@$subject = "Feedback";
+	@$header = "From : tomcy48@gmail.com";
 	@$message = "Thank you for your feedack !";
-	@$admin_log = "NAME : $username <br>EMAIL-ID : $useremail<br>MESSAGE : $message";
-	mail($useremail, $subject, $message);
+	@$adminmail = "tomcy48@gmail.com";
+	@$header1 = "From : $useremail";
+	@$message1 = $feedback;
+	//@$admin_log = "NAME : $username <br>EMAIL-ID : $useremail<br>MESSAGE : $message";
+	mail($useremail, $subject, $message, $header);
 
-	echo "Mail sent successfully to the user";
+	//echo "Mail sent successfully to the user";
 
-	mail("tomcyth19ce@student.mes.ac.in", "New Feedback", "$admin_log");
-	echo $admin_log;
+	mail($adminmail, "New Feedback from $name", $feedback, $header1);
 }
-else
 
-	die("Check Username and User Email ID")
+
 ?>
