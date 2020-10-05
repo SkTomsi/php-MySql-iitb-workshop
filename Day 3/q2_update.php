@@ -26,4 +26,5 @@ if ($row = mysql_fetch_assoc($extract)) {
 echo "Rohan , Subject 5 : $m5/100<br>Total Marks obtained : $tot_obt<br>Percentage obtained : $percent %";
 
 $conn->close();
+
 ?>
