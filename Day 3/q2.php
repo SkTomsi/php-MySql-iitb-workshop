@@ -11,7 +11,7 @@ if ($row = mysql_fetch_assoc($extract)) {
 
     echo $tot_obt. $old_m5. $percent;
 
-   /* $new_tot = $tot_obt - $old_m5 + $m5;
+   $new_tot = $tot_obt - $old_m5 + $m5;
     $percent = ($tot_obt/500)*100;
 
     $update = "UPDATE `class1` SET sub5=$m5, total obtained = $new_tot  , percent= $percent  WHERE name = 'Rohan' ";
@@ -24,6 +24,6 @@ if ($row = mysql_fetch_assoc($extract)) {
 
 }
 echo "Rohan , Subject 5 : $m5/100<br>Total Marks obtained : $tot_obt<br>Percentage obtained : $percent %";
-*/
+
 $conn->close();
 ?>
