@@ -14,8 +14,7 @@
   <label for="sub5">Subject 5:</label>
   <input type="number" id="sub5" name="sub5"><br>
   <input type = 'submit' value ='SUBMIT'>
-  <output name = 'TOTAL MARKS OBTAINED' for "sub1 , sub2, sub3, sub4, sub5"></output>
-  <output name = "PERCENTAGE OBTAINED" for "sub1 , sub2, sub3, sub4, sub5"></output>
+  
   </form>
 </html>
 <?php
