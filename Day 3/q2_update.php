@@ -7,7 +7,11 @@ $getdata = mysqli_query($conn , $extract);
 while($row = mysqli_fetch_assoc($getdata)){ 
   $name=$row['name'];
   $m5=$row['sub5'];
+<<<<<<< HEAD
   $total_obt=$row['total obtained']; 
+=======
+  $total_obt=$row['total obtained'] ;
+>>>>>>> 91e79db9ebb5042ae0adb46a781419242f933386
   $percent=$row['percent'];
 
   @$new_m5=99;
@@ -29,4 +33,8 @@ while($row = mysqli_fetch_assoc($getdata)){
 
  mysqli_close($conn);
 
+<<<<<<< HEAD
 ?>
+=======
+?>
+>>>>>>> 91e79db9ebb5042ae0adb46a781419242f933386
