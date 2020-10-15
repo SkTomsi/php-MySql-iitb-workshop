@@ -1,29 +1,32 @@
-<?php 
-require ("connect.php");
+<?php
+require("connect.php");
 
-$extract = "SELECT * FROM `class1` WHERE name = 'Rohan'";
+$extract= (" SELECT * FROM `class1` WHERE name='Rohan' ");
+$getdata = mysqli_query($conn , $extract);
 
-if ($row = mysql_fetch_assoc($extract)) {
-	$tot_obt = $row['totalMarks'];
-    $old_m5 = $row['sub5'];
-    $m5 = 99;
-    $percent = $row['percent'];
+while($row = mysqli_fetch_assoc($getdata)){ 
+  $name=$row['name'];
+  $m5=$row['sub5'];
+  $total_obt=$row['total obtained']; 
+  $percent=$row['percent'];
 
-    echo $tot_obt. $old_m5. $percent;
+  @$new_m5=99;
+  @$new_total_obt=$total_obt-$m5+$new_m5 ;
+  @$new_percent=  $new_total_obt/5;
+  echo  "Marksheet before updating :<br> Subject 5 = ".$m5."<br>Total Marks obtained : ".$total_obt."<br>Percentage Obtained : ".$percent." %<br>";
 
-   $new_tot = $tot_obt - $old_m5 + $m5;
-    $percent = ($tot_obt/500)*100;
+  $update="UPDATE `class1` SET `sub5`=$new_m5, `total obtained`=$new_total_obt, `percent`=$new_percent WHERE name='Rohan'";
+    if (mysqli_query($conn, $update))
+    {
+      echo "<br>Update done sucessfully<br><br>";
+    }
+    else
+    {
+      echo "error updating record :" .mysqli_error($connect);
+    }
+ }
+ echo  @$name." has updated marksheet:<br> Subject 5 = ".@$new_m5."<br>Total Marks obtained : ".@$new_total_obt."<br>Percentage Obtained : ".@$new_percent." %" ;
 
-    $update = "UPDATE `class1` SET sub5=$m5, total obtained = $new_tot  , percent= $percent  WHERE name = 'Rohan' ";
-    	if($conn->query($update)===TRUE){
-    		echo "Roham's record updates successfully !<br>";
-    	}
-    	else{
-    		echo "Error updating record: " . $conn->error;
-    	}
+ mysqli_close($conn);
 
-}
-echo "Rohan , Subject 5 : $m5/100<br>Total Marks obtained : $tot_obt<br>Percentage obtained : $percent %";
-
-$conn->close();
 ?>
